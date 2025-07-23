@@ -10,12 +10,18 @@ package DeliveryService;
  */
 public class Item {
 
+    private String name;
     private String category;
     private float weight;
 
-    public Item(String category, float weight) {
+    public Item(String name, String category, float weight) {
+        this.name = name;
         this.category = category;
         this.weight = weight;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getCategory() {
@@ -28,6 +34,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return String.format("Category: %s, weight: %.2f", category, weight);
+        return String.format("Name: %s category: %s, weight: %.2f", name, category, weight);
     }
 }
