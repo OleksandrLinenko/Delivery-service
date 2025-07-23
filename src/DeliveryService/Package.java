@@ -36,7 +36,7 @@ public class Package {
     public float getWeight() {
         return weight;
     }
-
+      
     public Adress getSender() {
         return sender;
     }
@@ -49,19 +49,10 @@ public class Package {
         return items;
     }
 
-    public float getTotalWeight() {
-        float totalWeight = 0;
-        for (Item item : items) {
-            totalWeight += item.getWeight();
-        }
-
-        return totalWeight;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%d %.3f Sender: %s, Receiver: %s total package weight: %.3f\n", packageNumber, weight, sender.toString(), receiver.toString(), GetTotalWeightFromList.create().getTotalWeight(items)));
+        sb.append(String.format("%d Sender: %s, Receiver: %s total package weight: %.3f\n", packageNumber, sender.toString(), receiver.toString(), GetTotalWeightFromList.create().getTotalWeight(items)));
         sb.append("Items list: ");
         sb.append(GetStringFromList.create().getString(items));
 
