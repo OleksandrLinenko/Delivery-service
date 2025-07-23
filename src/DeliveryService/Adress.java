@@ -10,15 +10,20 @@ package DeliveryService;
  */
 public class Adress {
 
+    public String name;
     public String country;
     public String city;
-    public int officeNumber;
+    public String adress1;
 
-    public Adress(String country, String city, int officeNumber) {
+    public Adress(String name, String country, String city, String adress1) {
+        this.name = name;
         this.country = country;
         this.city = city;
-        this.officeNumber = officeNumber;
+        this.adress1 = adress1;
     }
+
+    public String getName() {
+        return name;
 
     public String getCountry() {
         return country;
@@ -28,12 +33,11 @@ public class Adress {
         return city;
     }
 
-    public int getOfficeNumber() {
-        return officeNumber;
-    }
+    public String getAdress1() {
+        return adress1;
 
     @Override
     public String toString() {
-        return String.format("%s %s %d", country, city, officeNumber);
+        return String.format("%s %s %s %s", name, country, city, adress1);
     }
 }

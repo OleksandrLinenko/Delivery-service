@@ -4,6 +4,8 @@
  */
 package DeliveryService;
 
+import ListActions.GetStringFromList;
+import ListActions.GetTotalWeightFromList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +17,11 @@ public class Package {
 
     private int packageNumber;
     private float weight;
-    private Sender sender;
-    private Receiver receiver;
+    private Adress sender;
+    private Adress receiver;
     private List<Item> items = new ArrayList();
 
-    public Package(int packageNumber, float weight, Sender sender, Receiver receiver, List<Item> items) {
+    public Package(int packageNumber, float weight, Adress sender, Adress receiver, List<Item> items) {
         this.packageNumber = packageNumber;
         this.weight = weight;
         this.sender = sender;
@@ -34,12 +36,12 @@ public class Package {
     public float getWeight() {
         return weight;
     }
-
-    public Sender getSender() {
+      
+    public Adress getSender() {
         return sender;
     }
 
-    public Receiver getReceiver() {
+    public Adress getReceiver() {
         return receiver;
     }
 
@@ -47,23 +49,12 @@ public class Package {
         return items;
     }
 
-    public float getTotalWeight() {
-        float totalWeight = 0;
-        for (Item item : items) {
-            totalWeight += item.getWeight();
-        }
-
-        return totalWeight;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%d %.3f Sender: %s, Receiver: %s total package weight: %.3f\n", packageNumber, weight, sender.toString(), receiver.toString(), getTotalWeight()));
+        sb.append(String.format("%d Sender: %s, Receiver: %s total package weight: %.3f\n", packageNumber, sender.toString(), receiver.toString(), GetTotalWeightFromList.create().getTotalWeight(items)));
         sb.append("Items list: ");
-        for (Item item : items) {
-            sb.append(String.format("%s ", item.toString()));
-        }
+        sb.append(GetStringFromList.create().getString(items));
 
         return sb.toString();
     }
