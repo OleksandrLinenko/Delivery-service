@@ -24,6 +24,7 @@ public class Adress {
 
     public String getName() {
         return name;
+    }
 
     public String getCountry() {
         return country;
@@ -35,6 +36,7 @@ public class Adress {
 
     public String getAdress1() {
         return adress1;
+    }
 
     @Override
     public String toString() {

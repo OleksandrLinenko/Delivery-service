@@ -4,8 +4,6 @@
  */
 package DeliveryService;
 
-import ListActions.GetStringFromList;
-import ListActions.GetTotalWeightFromList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +17,9 @@ public class Package {
     private float weight;
     private Adress sender;
     private Adress receiver;
-    private List<Item> items = new ArrayList();
+    private PackageItems items = new PackageItems();
 
-    public Package(int packageNumber, float weight, Adress sender, Adress receiver, List<Item> items) {
+    public Package(int packageNumber, float weight, Adress sender, Adress receiver, PackageItems items) {
         this.packageNumber = packageNumber;
         this.weight = weight;
         this.sender = sender;
@@ -36,7 +34,7 @@ public class Package {
     public float getWeight() {
         return weight;
     }
-      
+
     public Adress getSender() {
         return sender;
     }
@@ -45,16 +43,16 @@ public class Package {
         return receiver;
     }
 
-    public List<Item> getItems() {
+    public PackageItems getItems() {
         return items;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%d Sender: %s, Receiver: %s total package weight: %.3f\n", packageNumber, sender.toString(), receiver.toString(), GetTotalWeightFromList.create().getTotalWeight(items)));
+        sb.append(String.format("%d Sender: %s, Receiver: %s total package weight: %.3f\n", packageNumber, sender.toString(), receiver.toString(), items.getTotalWeight()));
         sb.append("Items list: ");
-        sb.append(GetStringFromList.create().getString(items));
+        sb.append(items.getString());
 
         return sb.toString();
     }
