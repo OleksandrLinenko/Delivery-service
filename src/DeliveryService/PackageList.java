@@ -19,21 +19,26 @@ public class PackageList {
         return packages;
     }
 
-    public void getListInWay() {
+    public PackageList getListInWay() {
         PackageList result = new PackageList();
         for (Package packg : packages) {
             if (inWay(packg)) {
-                addPackage(packg);
+                result.addPackage(packg);
             }
         }
+        
+        return result;
     }
 
-    public void getListReceived() {
+    public PackageList getListReceived() {
+        PackageList result = new PackageList();
         for (Package packg : packages) {
             if (!inWay(packg)) {
-                addPackage(packg);
+                result.addPackage(packg);
             }
         }
+        
+        return result;
     }
 
     public void addPackage(Package pacgk) {
