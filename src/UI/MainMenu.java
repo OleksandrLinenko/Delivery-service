@@ -4,6 +4,9 @@
  */
 package UI;
 
+import Commands.ShowPackageSentToPersonCommand;
+import Commands.ShowYourPackageInTransitCommand;
+import Commands.ShowYourPackageReceivedCommand;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -55,12 +58,30 @@ public class MainMenu {
             case 0:
                 return true;
             case 1:
-
+                ShowPackageSentToPerson();
+                break;
+            case 2:
+                ShowYourPackageInTransit();
+                break;
+            case 3:
+                ShowYourPackageReceived();
                 break;
             default:
                 Message.create().show("Undefined option");
         }
 
         return false;
+    }
+    
+    public static void ShowPackageSentToPerson() {
+        ShowPackageSentToPersonCommand.create().handle();
+    }
+    
+    public static void ShowYourPackageInTransit() {
+        ShowYourPackageInTransitCommand.create().handle();
+    }
+    
+    public static void ShowYourPackageReceived() {
+        ShowYourPackageReceivedCommand.create().handle();
     }
 }

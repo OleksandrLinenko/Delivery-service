@@ -17,13 +17,15 @@ public class Package {
     private float weight;
     private Adress sender;
     private Adress receiver;
+    private State state;
     private PackageItems items = new PackageItems();
 
-    public Package(int packageNumber, float weight, Adress sender, Adress receiver, PackageItems items) {
+    public Package(int packageNumber, float weight, Adress sender, Adress receiver, State state, PackageItems items) {
         this.packageNumber = packageNumber;
         this.weight = weight;
         this.sender = sender;
         this.receiver = receiver;
+        this.state = state;
         this.items = items;
     }
 
@@ -43,6 +45,10 @@ public class Package {
         return receiver;
     }
 
+    public State getState() {
+        return state;
+    }
+
     public PackageItems getItems() {
         return items;
     }
@@ -50,7 +56,7 @@ public class Package {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%d Sender: %s, Receiver: %s total package weight: %.3f\n", packageNumber, sender.toString(), receiver.toString(), items.getTotalWeight()));
+        sb.append(String.format("%d Sender: %s, Receiver: %s total package weight: %.3f %s\n", packageNumber, sender.toString(), receiver.toString(), items.getTotalWeight(), state.getState()));
         sb.append("Items list: ");
         sb.append(items.getString());
 
