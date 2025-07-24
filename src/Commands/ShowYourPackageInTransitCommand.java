@@ -18,7 +18,6 @@ public class ShowYourPackageInTransitCommand {
     }
 
     public void handle() {
-        Application.getInstance().getGettingPackages().getListInWay();
-        ShowList.create().handle(Application.getInstance().getGettingPackages());
+        ShowList.create().handle(Application.getInstance().getGettingPackages().getListInWay());
     }
 }
