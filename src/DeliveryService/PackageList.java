@@ -44,6 +44,16 @@ public class PackageList {
     public void addPackage(Package pacgk) {
         packages.add(pacgk);
     }
+    
+    public Package findPackage(int idNumber) {
+        for(Package packg : packages) {
+            if(packg.getPackageNumber() == idNumber) {
+                return packg;
+            }
+        }
+        
+        return null;
+    }
 
     public boolean inWay(Package packg) {
         if (packg.getState().equals(State.INWWAY)) {

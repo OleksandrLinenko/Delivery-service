@@ -4,6 +4,7 @@
  */
 package UI;
 
+import Commands.FindPackageCommand;
 import Commands.ShowPackageSentToPersonCommand;
 import Commands.ShowYourPackageInTransitCommand;
 import Commands.ShowYourPackageReceivedCommand;
@@ -66,6 +67,12 @@ public class MainMenu {
             case 3:
                 ShowYourPackageReceived();
                 break;
+            case 4:
+                
+                break;
+            case 5:
+                FindPackage();
+                break;
             default:
                 Message.create().show("Undefined option");
         }
@@ -83,5 +90,9 @@ public class MainMenu {
     
     public static void ShowYourPackageReceived() {
         ShowYourPackageReceivedCommand.create().handle();
+    }
+    
+    public static void FindPackage() {
+        FindPackageCommand.create().handle();
     }
 }
