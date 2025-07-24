@@ -17,7 +17,6 @@ public class ShowYourPackageReceivedCommand {
     }
     
     public void handle() {
-        Application.getInstance().getGettingPackages().getListReceived();
-        ShowList.create().handle(Application.getInstance().getGettingPackages());
+        ShowList.create().handle(Application.getInstance().getGettingPackages().getListReceived());
     }
 }
