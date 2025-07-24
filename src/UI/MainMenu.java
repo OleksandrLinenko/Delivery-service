@@ -4,6 +4,7 @@
  */
 package UI;
 
+import Commands.AddNewSendingPackageCommand;
 import Commands.FindPackageCommand;
 import Commands.ShowPackageSentToPersonCommand;
 import Commands.ShowYourPackageInTransitCommand;
@@ -68,7 +69,7 @@ public class MainMenu {
                 ShowYourPackageReceived();
                 break;
             case 4:
-                
+                AddNewSendingPackage();
                 break;
             case 5:
                 FindPackage();
@@ -90,6 +91,10 @@ public class MainMenu {
     
     public static void ShowYourPackageReceived() {
         ShowYourPackageReceivedCommand.create().handle();
+    }
+    
+    public static void AddNewSendingPackage() {
+        AddNewSendingPackageCommand.create().handle();
     }
     
     public static void FindPackage() {

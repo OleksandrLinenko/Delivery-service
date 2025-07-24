@@ -22,4 +22,14 @@ public class Ask {
         Message.create().show(string);
         return sc.nextInt();
     }
+    
+    public float askFloat(String string) {
+        Message.create().show(string);
+        return sc.nextFloat();
+    }
+    
+    public String askString(String string) {
+        Message.create().show(string);
+        return sc.next();
+    }
 }
