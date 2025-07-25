@@ -4,9 +4,6 @@
  */
 package DeliveryService;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author oleksandrlinenko
@@ -52,6 +49,7 @@ public class Package {
     public PackageItems getItems() {
         return items;
     }
+
 
     @Override
     public String toString() {
