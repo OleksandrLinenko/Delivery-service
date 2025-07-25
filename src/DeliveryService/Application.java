@@ -14,8 +14,8 @@ import java.util.List;
 public class Application {
 
     private static Application app = new Application();
-    private PackageList SendingPackages;
-    private PackageList GettingPackages;
+    private PackageList SendingPackages = new PackageList();
+    private PackageList GettingPackages = new PackageList();
 
     private Application() {
 
