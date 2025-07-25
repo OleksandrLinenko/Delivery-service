@@ -54,7 +54,7 @@ public class Package {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%d Sender: %s, Receiver: %s total package weight: %.3f %s\n", packageNumber, sender.toString(), receiver.toString(), items.getTotalWeight(), state.getState()));
+        sb.append(String.format("Package ID-Number: %d, Sender: %s, Receiver: %s, Total package weight: %.3f, State: %s\n", packageNumber, sender.toString(), receiver.toString(), items.getTotalWeight(), state.getState()));
         sb.append("Items list: ");
         sb.append(items.getString());
 
