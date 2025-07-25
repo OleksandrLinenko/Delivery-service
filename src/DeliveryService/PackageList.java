@@ -19,48 +19,28 @@ public class PackageList {
         return packages;
     }
 
-    public PackageList getListInWay() {
+    public PackageList getListByState(State state) {
         PackageList result = new PackageList();
         for (Package packg : packages) {
-            if (inWay(packg)) {
+            if (packg.getState().equals(state)) {
                 result.addPackage(packg);
             }
         }
-        
-        return result;
-    }
 
-    public PackageList getListReceived() {
-        PackageList result = new PackageList();
-        for (Package packg : packages) {
-            if (!inWay(packg)) {
-                result.addPackage(packg);
-            }
-        }
-        
         return result;
     }
 
     public void addPackage(Package pacgk) {
         packages.add(pacgk);
     }
-    
+
     public Package findPackage(int idNumber) {
-        for(Package packg : packages) {
-            if(packg.getPackageNumber() == idNumber) {
+        for (Package packg : packages) {
+            if (packg.getPackageNumber() == idNumber) {
                 return packg;
             }
         }
-        
+
         return null;
     }
-
-    public boolean inWay(Package packg) {
-        if (packg.getState().equals(State.INWWAY)) {
-            return true;
-        }
-
-        return false;
-    }
-
 }

@@ -5,6 +5,7 @@
 package Commands;
 
 import DeliveryService.Application;
+import DeliveryService.State;
 import UI.ShowList;
 
 /**
@@ -17,6 +18,6 @@ public class ShowYourPackageReceivedCommand {
     }
     
     public void handle() {
-        ShowList.create().handle(Application.getInstance().getGettingPackages().getListReceived());
+        ShowList.create().handle(Application.getInstance().getGettingPackages().getListByState(State.RECEIVED));
     }
 }

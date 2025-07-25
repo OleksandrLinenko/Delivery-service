@@ -54,7 +54,7 @@ public class Application {
         for (int i = 0; i < itemsQuantity; i++) {
             String itemName = Ask.create().askString("Set item name: ");
             String category = Ask.create().askString("Set item category: ");
-            float weight = Ask.create().askFloat("Set item weight");
+            float weight = Ask.create().askFloat("Set item weight: ");
             items.addItem(new Item(itemName, category, weight));
         }
 

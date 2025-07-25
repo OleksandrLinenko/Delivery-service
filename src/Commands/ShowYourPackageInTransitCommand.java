@@ -5,6 +5,7 @@
 package Commands;
 
 import DeliveryService.Application;
+import DeliveryService.State;
 import UI.ShowList;
 
 /**
@@ -18,6 +19,6 @@ public class ShowYourPackageInTransitCommand {
     }
 
     public void handle() {
-        ShowList.create().handle(Application.getInstance().getGettingPackages().getListInWay());
+        ShowList.create().handle(Application.getInstance().getGettingPackages().getListByState(State.INWWAY));
     }
 }
