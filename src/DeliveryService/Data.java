@@ -19,9 +19,9 @@ public class Data {
         return new Data();
     }
 
-    public void saveData(String path) throws IOException {
+    public void saveData(String path, PackageList list) throws IOException {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(new File(path)))) {
-            for(Package packg : Application.getInstance().getGettingPackages().getPackages()) {
+            for(Package packg : list.getPackages()) {
                 bw.write(String.format("%d,%.3f,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", packg.getPackageNumber(), packg.getItems().getTotalWeight(), packg.getState(),
                 packg.getSender().getName(), packg.getSender().getCountry(), packg.getSender().getCity(), packg.getSender().getAdress1(),
                 packg.getReceiver().getName(), packg.getReceiver().getCountry(), packg.getReceiver().getCity(), packg.getReceiver().getAdress1()));  

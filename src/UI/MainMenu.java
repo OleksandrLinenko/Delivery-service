@@ -6,6 +6,7 @@ package UI;
 
 import Commands.AddNewSendingPackageCommand;
 import Commands.FindPackageCommand;
+import Commands.SaveSendingPackagesCommand;
 import Commands.ShowPackageSentToPersonCommand;
 import Commands.ShowYourPackageInTransitCommand;
 import Commands.ShowYourPackageReceivedCommand;
@@ -38,8 +39,9 @@ public class MainMenu {
         Message.create().show("1. View packages sent to another person;\n");
         Message.create().show("2. View your packages that are still in transit\n");
         Message.create().show("3. View your received packages\n");
-        Message.create().show("4. Collect and send a packag\n");
+        Message.create().show("4. Collect and send a package\n");
         Message.create().show("5. Receive one of your packages\n");
+        Message.create().show("6. Save sending packages to file\n");
         Message.create().show("0. End of program\n");
     }
 
@@ -60,19 +62,22 @@ public class MainMenu {
             case 0:
                 return true;
             case 1:
-                ShowPackageSentToPerson();
+                showPackageSentToPerson();
                 break;
             case 2:
-                ShowYourPackageInTransit();
+                showYourPackageInTransit();
                 break;
             case 3:
-                ShowYourPackageReceived();
+                showYourPackageReceived();
                 break;
             case 4:
-                AddNewSendingPackage();
+                addNewSendingPackage();
                 break;
             case 5:
-                FindPackage();
+                findPackage();
+                break;
+            case 6:
+                saveSendingPackages();
                 break;
             default:
                 Message.create().show("Undefined option");
@@ -81,23 +86,27 @@ public class MainMenu {
         return false;
     }
     
-    public static void ShowPackageSentToPerson() {
+    public static void showPackageSentToPerson() {
         ShowPackageSentToPersonCommand.create().handle();
     }
     
-    public static void ShowYourPackageInTransit() {
+    public static void showYourPackageInTransit() {
         ShowYourPackageInTransitCommand.create().handle();
     }
     
-    public static void ShowYourPackageReceived() {
+    public static void showYourPackageReceived() {
         ShowYourPackageReceivedCommand.create().handle();
     }
     
-    public static void AddNewSendingPackage() {
+    public static void addNewSendingPackage() {
         AddNewSendingPackageCommand.create().handle();
     }
     
-    public static void FindPackage() {
+    public static void findPackage() {
         FindPackageCommand.create().handle();
+    }
+    
+    public static void saveSendingPackages() {
+        SaveSendingPackagesCommand.create().handle();
     }
 }
