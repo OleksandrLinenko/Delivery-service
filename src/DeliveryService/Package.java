@@ -18,6 +18,9 @@ public class Package {
     private PackageItems items = new PackageItems();
 
     public Package(int packageNumber, float weight, Adress sender, Adress receiver, State state, PackageItems items) {
+        if(packageNumber <= 0 || weight <= 0 || sender == null || receiver == null || items == null) {
+            throw new IllegalArgumentException("Illegal argument");
+        }
         this.packageNumber = packageNumber;
         this.weight = weight;
         this.sender = sender;
