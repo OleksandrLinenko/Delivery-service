@@ -6,6 +6,7 @@ package DeliveryService;
 
 import UI.Ask;
 import UI.ErrorMessage;
+import UI.Message;
 import java.util.Random;
 
 /**
@@ -53,14 +54,19 @@ public class Application {
                 String adressR = Ask.create().askString("Set receiver adress: ");
                 Adress receiver = new Adress(nameR, countryR, cityR, adressR);
 
+                Message.create().show("Adding items to the package: ");
                 PackageItems items = new PackageItems();
-                int itemsQuantity = Ask.create().askInt("Set items quantity: ");
-                for (int i = 0; i < itemsQuantity; i++) {
+                boolean endAsk = false;
+                do {
                     String itemName = Ask.create().askString("Set item name: ");
                     String category = Ask.create().askString("Set item category: ");
                     float weight = Ask.create().askFloat("Set item weight: ");
                     items.addItem(new Item(itemName, category, weight));
-                }
+                    String wantCon = Ask.create().askString("Pres Enter to continue adding items");
+                    if (!wantCon.equals("")) {
+                        endAsk = true;
+                    }
+                } while (!endAsk);
 
                 float totalWeight = items.getTotalWeight();
                 correct = true;
