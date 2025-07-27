@@ -16,8 +16,8 @@ public class Adress {
     public String adress1;
 
     public Adress(String name, String country, String city, String adress1) {
-        if(name.isEmpty() || country.isEmpty() || city.isEmpty() || adress1.isEmpty()) {
-            throw new IllegalArgumentException("Illegal argument");
+        if (name.isEmpty() || country.isEmpty() || city.isEmpty() || adress1.isEmpty()) {
+            throw new IllegalArgumentException("One of input filed is empty");
         }
         this.name = name;
         this.country = country;

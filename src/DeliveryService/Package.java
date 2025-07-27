@@ -18,8 +18,11 @@ public class Package {
     private PackageItems items = new PackageItems();
 
     public Package(int packageNumber, float weight, Adress sender, Adress receiver, State state, PackageItems items) {
-        if(packageNumber <= 0 || weight <= 0 || sender == null || receiver == null || items == null) {
-            throw new IllegalArgumentException("Illegal argument");
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Weight can't be 0 or less");
+        }
+        if (packageNumber <= 0 || weight <= 0 || sender == null || receiver == null || items == null) {
+            throw new IllegalArgumentException("One of input filed is empty");
         }
         this.packageNumber = packageNumber;
         this.weight = weight;
@@ -52,7 +55,6 @@ public class Package {
     public PackageItems getItems() {
         return items;
     }
-
 
     @Override
     public String toString() {

@@ -15,8 +15,12 @@ public class Item {
     private float weight;
 
     public Item(String name, String category, float weight) {
-        if(name.isEmpty() || category.isEmpty() || weight <= 0) {
-            throw new IllegalArgumentException("Illegal argument");
+        if (name.isEmpty() || category.isEmpty()) {
+            throw new IllegalArgumentException("One of input filed is empty");
+        }
+
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Weight can't be 0 or less");
         }
         this.name = name;
         this.category = category;
