@@ -9,12 +9,13 @@ package DeliveryService;
  * @author oleksandrlinenko
  */
 public class Item {
-
+    
+    private int packageNumber;
     private String name;
     private String category;
     private float weight;
 
-    public Item(String name, String category, float weight) {
+    public Item(int packageNumber, String name, String category, float weight) {
         if (name.isEmpty() || category.isEmpty()) {
             throw new IllegalArgumentException("One of input filed is empty");
         }
@@ -22,9 +23,14 @@ public class Item {
         if (weight <= 0) {
             throw new IllegalArgumentException("Weight can't be 0 or less");
         }
+        this.packageNumber = packageNumber;
         this.name = name;
         this.category = category;
         this.weight = weight;
+    }
+    
+    public int getPackageNumber() {
+        return packageNumber;
     }
 
     public String getName() {

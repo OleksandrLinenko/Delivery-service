@@ -61,7 +61,7 @@ public class Application {
                     String itemName = Ask.create().askString("Set item name: ");
                     String category = Ask.create().askString("Set item category: ");
                     float weight = Ask.create().askFloat("Set item weight: ");
-                    items.addItem(new Item(itemName, category, weight));
+                    items.addItem(new Item(packageNumber, itemName, category, weight));
                     String wantCon = Ask.create().askString("Pres Enter to continue adding items");
                     if (!wantCon.equals("")) {
                         endAsk = true;
